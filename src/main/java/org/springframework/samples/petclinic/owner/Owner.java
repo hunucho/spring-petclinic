@@ -19,6 +19,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
 import org.springframework.core.style.ToStringCreator;
 import org.springframework.samples.petclinic.model.Person;
 import org.springframework.util.Assert;
@@ -61,6 +63,10 @@ public class Owner extends Person {
 	@Pattern(regexp = "\\d{10}", message = "{telephone.invalid}")
 	private String telephone;
 
+	@Column
+	@NotNull
+	private Integer age;
+
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	@JoinColumn(name = "owner_id")
 	@OrderBy("name")
@@ -98,6 +104,14 @@ public class Owner extends Person {
 		if (pet.isNew()) {
 			getPets().add(pet);
 		}
+	}
+
+	public Integer getAge() {
+		return this.age;
+	}
+
+	public void setAge(String age) {
+		this.age = Integer.parseInt(age);
 	}
 
 	/**
