@@ -110,8 +110,8 @@ public class Owner extends Person {
 		return this.age;
 	}
 
-	public void setAge(String age) {
-		this.age = Integer.parseInt(age);
+	public void setAge(Integer age) {
+		this.age = age;
 	}
 
 	/**
@@ -167,6 +167,7 @@ public class Owner extends Person {
 			.append("address", this.address)
 			.append("city", this.city)
 			.append("telephone", this.telephone)
+			.append("age", this.age)
 			.toString();
 	}
 

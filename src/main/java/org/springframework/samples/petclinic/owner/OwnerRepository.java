@@ -21,6 +21,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 
+
 /**
  * Repository class for <code>Owner</code> domain objects. All method names are compliant
  * with Spring Data naming conventions so this interface can easily be extended for Spring
@@ -44,6 +45,7 @@ public interface OwnerRepository extends JpaRepository<Owner, Integer> {
 	 */
 	Page<Owner> findByLastNameStartingWith(String lastName, Pageable pageable);
 	Page<Owner> findByFirstNameStartingWith(String FirstName, Pageable pageable);
+	Page<Owner> findByLastNameContaining(String lastName, Pageable pageable);
 
 	/**
 	 * Retrieve an {@link Owner} from the data store by id.
